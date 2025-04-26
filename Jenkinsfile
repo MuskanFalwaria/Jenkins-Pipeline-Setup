@@ -4,6 +4,7 @@ pipeline {
     environment {
         // Docker Hub credentials stored in Jenkins
         DOCKER_HUB_CREDENTIALS = 'dockerhub-credentials' // replace with your Jenkins Docker Hub credentials ID
+        DOCKER_CREDENTIALS_ID = 'docker-hub-credentials'
         DOCKER_IMAGE_NAME = 'muskanfalwaria/flask-docker-app:latest' // replace with your Docker Hub username and repo name
     }
 
