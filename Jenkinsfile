@@ -9,7 +9,8 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                git 'http://github.com/MuskanFalwaria/Jenkins-Pipeline-Setup.git'
+                // git 'http://github.com/MuskanFalwaria/Jenkins-Pipeline-Setup.git'
+                git branch: 'master', url: 'http://github.com/MuskanFalwaria/Jenkins-Pipeline-Setup.git' // replace with your repo URL
             }
         }
 
