@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Checkout Code') {
             steps {
-                git 'http://github.com/MuskanFalwaria/Jenkins-Pipeline-Setupt.git'
+                git 'http://github.com/MuskanFalwaria/Jenkins-Pipeline-Setup.git'
             }
         }
 
