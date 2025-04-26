@@ -5,7 +5,7 @@ pipeline {
         // Docker Hub credentials stored in Jenkins
         DOCKER_HUB_CREDENTIALS = 'dockerhub-credentials' // replace with your Jenkins Docker Hub credentials ID
         DOCKER_CREDENTIALS_ID = 'docker-hub-credentials'
-        DOCKER_IMAGE_NAME = 'muskanfalwaria/flask-docker-app:latest' // replace with your Docker Hub username and repo name
+        DOCKER_IMAGE_NAME = 'muskanfalwaria/flask-docker-app' // replace with your Docker Hub username and repo name
     }
 
     stages {
@@ -25,19 +25,18 @@ pipeline {
             }
         }
 
-        stage('Push Docker Image') {
+         stage('Push Docker Image') {
             steps {
                 script {
                     // Push the Docker image to Docker Hub
-                    // docker.withRegistry('https://registry.hub.docker.com', DOCKER_HUB_CREDENTIALS) {
-                    //     docker.image(DOCKER_IMAGE_NAME).push()
-                    docker.withRegistry('https://index.docker.io/v1/', DOCKER_CREDENTIALS_ID) {
-                        docker.image(DOCKER_IMAGE).push()
+                    docker.withRegistry('https://registry.hub.docker.com', DOCKER_HUB_CREDENTIALS) {
+                        docker.image(DOCKER_IMAGE_NAME).push('latest')
                     }
                 }
             }
         }
     }
+
 
     post {
         success {
